@@ -2,7 +2,7 @@ const { query } = require('express')
 const { request, response } = require('express')
 
 const getUsers = (req = request, res = response) => {
-     // url/api/users/?name_hamilton&date=2022-11-09 -> query
+  // url/api/users/?name_hamilton&date=2022-11-09 -> query
   const { name, date } = req.query
 
   req.res.status(200).json({
@@ -13,7 +13,7 @@ const getUsers = (req = request, res = response) => {
 }
 
 const getUserById = (req = request, res = response) => {
-   // url/api/users/25 -> segmento:el 25 entra en el id
+  // url/api/users/25 -> segmento:el 25 entra en el id
   const id = req.params.id
   res.json({
     msg: 'usuario por id - controller',
@@ -33,10 +33,11 @@ const createUser = (req = request, res = response) => {
 
 const updateUser = (req = request, res = response) => {
   const id = req.params.id
-  const body = query.body
+  const body = req.body
   res.json({
     msg: 'put API - controller',
     id,
+    body,
   })
 }
 
